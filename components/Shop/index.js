@@ -4,6 +4,7 @@ import { StyleSheet, View } from "react-native";
 import shopStore from "../../stores/shopStore";
 import ShopItem from "./ShopItem";
 import { Text } from "native-base";
+import Home from "../Home";
 
 const ShopList = () => {
   const shopList = shopStore.shops.map((shop) => (
@@ -11,7 +12,10 @@ const ShopList = () => {
   ));
   return (
     <View>
-      <Text>{shopList}</Text>
+      <Text>
+        <Home />
+      </Text>
+      {shopList}
     </View>
   );
 };

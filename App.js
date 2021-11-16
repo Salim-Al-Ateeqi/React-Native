@@ -13,6 +13,8 @@ import {
 } from "native-base";
 import NativeBaseIcon from "./components/NativeBaseIcon";
 import { NavigationContainer } from "@react-navigation/native";
+import ShopList from "./components/Shop";
+import ShopDetail from "./components/Shop/ShopDetail";
 
 // Define the config
 const config = {
@@ -37,9 +39,8 @@ export default function App() {
             <NativeBaseIcon />
             <Heading size="lg">Welcome to NativeBase</Heading>
             <HStack space={2} alignItems="center">
-              <RootNavigator />
+              <ShopList />
             </HStack>
-            <ShopList />
 
             <Link href="https://docs.nativebase.io" isExternal>
               <Text color="primary.500" underline fontSize={"xl"}>

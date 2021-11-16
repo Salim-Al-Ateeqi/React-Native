@@ -1,12 +1,18 @@
 import { Text, Button } from "native-base";
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Alert } from "react-native";
 
 const Home = () => {
   return (
     <View>
       <Text>Welcome to the Homepage</Text>
-      <Button>Shops List</Button>
+      <Button
+        onPress={() => {
+          Alert.alert("Displaying Shop List");
+        }}
+      >
+        Shops List
+      </Button>
     </View>
   );
 };
