@@ -6,11 +6,13 @@ class ShopStore {
     makeAutoObservable(this);
   }
   shops = [];
+  isLoading = true;
 
   fetchShops = async () => {
     try {
       const res = await instance.get("/shops");
       this.shops = res.data;
+      this.isLoading = false;
     } catch (error) {
       console.log("ShopStore -> fetchShops -> error", error);
     }
