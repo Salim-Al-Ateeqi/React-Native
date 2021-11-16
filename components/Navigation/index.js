@@ -1,22 +1,21 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import Home from "../Home";
 import ShopList from "../Shop";
+import ShopDetail from "../Shop/ShopDetail";
 
-const Navigation = () => {
+const RootNavigator = () => {
   const { Navigator, Screen } = createStackNavigator();
   return (
-    <View>
-      <Navigator initialRouteName="Home">
-        <Screen name="Home" component={Home} />
-        <Screen name="ShopList" component={ShopList} />
-        {/* <Screen name="ShopDetail" component={ShopDetail} /> */}
-      </Navigator>
-    </View>
+    <Navigator initialRouteName="ShopList">
+      <Screen name="Home" component={Home} />
+      <Screen name="ShopList" component={ShopList} />
+      <Screen name="ShopDetail" component={ShopDetail} />
+    </Navigator>
   );
 };
 
-export default Navigation;
+export default RootNavigator;
 
 const styles = StyleSheet.create({});

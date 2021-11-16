@@ -3,21 +3,17 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 import shopStore from "../../stores/shopStore";
 import ShopItem from "./ShopItem";
-import { Text } from "native-base";
-import Home from "../Home";
+import { Spinner } from "native-base";
 
-const ShopList = () => {
+const ShopList = ({ navigation }) => {
+  if (shopStore.isLoading) {
+    return <Spinner />;
+  }
+
   const shopList = shopStore.shops.map((shop) => (
-    <ShopItem shop={shop} key={shop._id} />
+    <ShopItem navigation={navigation} shop={shop} key={shop._id} />
   ));
-  return (
-    <View>
-      <Text>
-        <Home />
-      </Text>
-      {shopList}
-    </View>
-  );
+  return <View>{shopList}</View>;
 };
 
 export default observer(ShopList);

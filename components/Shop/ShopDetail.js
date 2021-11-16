@@ -6,8 +6,8 @@ import shopStore from "../../stores/shopStore";
 import { baseURL } from "../../stores/instance";
 import ProductList from "../Shop/ProductList";
 
-const ShopDetail = () => {
-  if (shopStore.isLoading === true) {
+const ShopDetail = ({ navigation, route }) => {
+  if (shopStore.isLoading) {
     return <Spinner />;
   }
 

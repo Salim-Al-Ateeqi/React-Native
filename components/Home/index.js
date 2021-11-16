@@ -1,22 +1,20 @@
-import { Text, Button } from "native-base";
+import { Button, Text } from "native-base";
 import React from "react";
-import { StyleSheet, View, Alert } from "react-native";
+import { StyleSheet, View } from "react-native";
 
-const Home = () => {
+const Home = ({ navigation }) => {
   return (
     <View>
-      <Text>Welcome to the Homepage</Text>
-      <Button
-        onPress={() => {
-          Alert.alert("Displaying Shop List");
-        }}
-      >
-        Shops List
-      </Button>
+      <Text style={styles.flexi}>Welcome to the Homepage</Text>
+      <Button onPress={() => navigation.navigate("ShopList")}>Hellooo</Button>
     </View>
   );
 };
 
 export default Home;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  flexi: {
+    display: "flex",
+  },
+});

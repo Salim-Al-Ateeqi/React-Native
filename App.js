@@ -14,6 +14,7 @@ import {
 import NativeBaseIcon from "./components/NativeBaseIcon";
 import { NavigationContainer } from "@react-navigation/native";
 import ShopDetail from "./components/Shop/ShopDetail";
+import RootNavigator from "./components/Navigation";
 
 // Define the config
 const config = {
@@ -26,31 +27,25 @@ export const theme = extendTheme({ config });
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <NativeBaseProvider>
-        <Center
-          _dark={{ bg: "blueGray.900" }}
-          _light={{ bg: "blueGray.50" }}
-          px={4}
-          flex={1}
-        >
-          <VStack space={5} alignItems="center">
-            <NativeBaseIcon />
-            <Heading size="lg">Welcome to NativeBase</Heading>
-            <HStack space={2} alignItems="center">
-              <ShopDetail />
-            </HStack>
-
-            <Link href="https://docs.nativebase.io" isExternal>
-              <Text color="primary.500" underline fontSize={"xl"}>
-                Learn NativeBase
-              </Text>
-            </Link>
+    <NativeBaseProvider>
+      <Center
+        _dark={{ bg: "blueGray.900" }}
+        _light={{ bg: "blueGray.50" }}
+        px={4}
+        flex={1}
+      >
+        <VStack space={5} alignItems="center">
+          <NativeBaseIcon />
+          <Heading size="lg">Hi Salwa</Heading>
+          <HStack space={2} alignItems="center">
             <ToggleDarkMode />
-          </VStack>
-        </Center>
-      </NativeBaseProvider>
-    </NavigationContainer>
+            <NavigationContainer>
+              <RootNavigator />
+            </NavigationContainer>
+          </HStack>
+        </VStack>
+      </Center>
+    </NativeBaseProvider>
   );
 }
 
