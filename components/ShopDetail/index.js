@@ -18,6 +18,7 @@ const ShopDetail = ({ route }) => {
       <Image
         style={styles.shopDetailImage}
         source={{ uri: baseURL + shop.image }}
+        alt="image"
       />
       <Text style={styles.shopDetailTitle}>{shop.name}</Text>
       <ProductList products={shop.products} />

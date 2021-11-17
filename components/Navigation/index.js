@@ -3,6 +3,8 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Home from "../Home";
 import ShopList from "../Shop";
 import ShopDetail from "../ShopDetail";
+import CartList from "../Cart";
+import CartIcon from "../Icons/Cart";
 
 const RootNavigator = () => {
   const { Navigator, Screen } = createStackNavigator();
@@ -20,28 +22,34 @@ const RootNavigator = () => {
       <Screen
         name="ShopList"
         component={ShopList}
-        options={{
+        options={({ navigation }) => ({
           headerStyle: {
             backgroundColor: "#1784b2",
           },
-        }}
+          headerRight: () => <CartIcon navigation={navigation} />,
+        })}
       />
       <Screen
         name="ShopDetail"
         component={ShopDetail}
-        options={
-          (({ route }) => {
-            const { shop } = route.params;
-            return {
-              title: shop.name,
-            };
-          },
-          {
+        options={({ navigation, route }) => {
+          return {
             headerStyle: {
               backgroundColor: "#356290",
             },
-          })
-        }
+            title: route.params.shop.name,
+            headerRight: () => <CartIcon navigation={navigation} />,
+          };
+        }}
+      />
+      <Screen
+        name="CartList"
+        component={CartList}
+        options={{
+          headerStyle: {
+            backgroundColor: "white",
+          },
+        }}
       />
     </Navigator>
   );

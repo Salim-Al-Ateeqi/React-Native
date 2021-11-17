@@ -38,7 +38,6 @@ const Home = ({ navigation }) => {
           <Button
             onPress={() => {
               navigation.navigate("ShopList");
-              console.log("clicked");
             }}
           >
             Browse Shop List
