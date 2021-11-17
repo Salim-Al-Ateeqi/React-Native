@@ -1,14 +1,13 @@
 import React from "react";
-import { StyleSheet, Text, TouchableOpacity } from "react-native";
-import { HStack } from "native-base";
+import { Pressable, Text } from "react-native";
+import { HStack, Image } from "native-base";
 import { baseURL } from "../../stores/instance";
 
 const ShopItem = ({ shop, navigation }) => {
   return (
-    <TouchableOpacity
+    <Pressable
       onPress={() => {
-        navigation.navigate("ShopDetail"), { shop: shop };
-        console.log("click");
+        navigation.navigate("ShopDetail", { shop: shop });
       }}
     >
       <HStack w="100%" alignItems="center" space="3">
@@ -21,10 +20,8 @@ const ShopItem = ({ shop, navigation }) => {
         />
         <Text>{shop.name}</Text>
       </HStack>
-    </TouchableOpacity>
+    </Pressable>
   );
 };
 
 export default ShopItem;
-
-const styles = StyleSheet.create({});

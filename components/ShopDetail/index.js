@@ -4,14 +4,15 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import shopStore from "../../stores/shopStore";
 import { baseURL } from "../../stores/instance";
-import ProductList from "../Shop/ProductList";
+import ProductList from "../../components/ProductList";
 
-const ShopDetail = ({ navigation, route }) => {
+const ShopDetail = ({ route }) => {
+  const { shop } = route.params;
+
   if (shopStore.isLoading) {
     return <Spinner />;
   }
 
-  const shop = shopStore.shops[0];
   return (
     <View style={styles.shopDetailWrapper}>
       <Image
