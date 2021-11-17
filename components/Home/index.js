@@ -10,7 +10,7 @@ import {
   VStack,
 } from "native-base";
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { View, Dimensions } from "react-native";
 import NativeBaseIcon from "../../components/NativeBaseIcon";
 
 // Define the config
@@ -29,15 +29,18 @@ const Home = ({ navigation }) => {
         _dark={{ bg: "blueGray.900" }}
         _light={{ bg: "blueGray.50" }}
         px={4}
-        flex={1}
+        height={Dimensions.get("window").height}
       >
         <VStack space={5} alignItems="center">
           <NativeBaseIcon />
           <Heading size="lg">Welcome to the Store</Heading>
-          <HStack space={2} alignItems="center">
-            <ToggleDarkMode />
-          </HStack>
-          <Button onPress={() => navigation.navigate("ShopList")}>
+          <ToggleDarkMode />
+          <Button
+            onPress={() => {
+              navigation.navigate("ShopList");
+              console.log("clicked");
+            }}
+          >
             Browse Shop List
           </Button>
         </VStack>
