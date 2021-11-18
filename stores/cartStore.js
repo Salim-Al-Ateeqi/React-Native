@@ -1,4 +1,5 @@
 import { makeAutoObservable } from "mobx";
+import { Alert } from "react-native";
 
 class CartStore {
   items = [];
@@ -25,6 +26,11 @@ class CartStore {
       (item) => item.product._id !== productId
     );
     this.items = removedItem;
+  };
+
+  checkout = () => {
+    this.items.splice(0, this.items.length);
+    return Alert.alert("Thank you for your purchase!");
   };
 
   get totalQuantity() {
